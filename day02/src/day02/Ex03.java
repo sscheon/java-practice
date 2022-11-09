@@ -8,8 +8,8 @@ import java.net.URL;
 
 public class Ex03 {
 	public static void main(String[] args) throws IOException {
-		String path = "https://postfiles.pstatic.net/MjAyMDEyMDhfMjgg/MDAxNjA3MzU5MzM1ODgw.NPDe6mGlyyJajKG_tgDOFSK6DXA3QXj2LR32DTxn7kAg.bE1QJjLGAa7WsKBbueudIafbBFgAcLAx9B_x11JHLy0g.JPEG.itiio1619dl/IMG_2692.jpg?type=w966";
-		
+		String path = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMDhfMjI5%2FMDAxNTQ0Mjc3MDMwMzUx.9xUwPVR-_lmQZVTV8Ti_tau5p4Kv1b4MPc1vNfgGTVog.Z4zsZjhGOi1DW8i_9Q4XnPCN6GuJJPOfvXDyN6ONpuUg.PNG.godhot1146%2FScreenshot_20180624-023459.png&type=sc960_832";
+				
 		BufferedInputStream bis = null;
 		FileOutputStream fos = null;
 		
@@ -17,21 +17,20 @@ public class Ex03 {
 			bis = new BufferedInputStream(new URL(path).openStream());
 			fos = new FileOutputStream(new File("my.jpg"));
 			
-			byte[] buffer = new byte[4096];	// 버퍼, 1바이트씩 처리하면 함수호출이 너무 많다
-			int count, total = 0;			// 일정한 크기만큼 데이터를 모아서 한번에 처리한다
+			byte[] buffer = new byte[1024];		// 버퍼, 1바이트씩 처리하면 함수
+			int count, total = 0;
 			
-			while((count = bis.read(buffer, 0, 1024)) != -1) {
+			while ((count = bis.read(buffer, 0, 1024)) != -1) {
 				total += count;
 				System.out.println(total);
 				fos.write(buffer, 0, count);
 			}
 		} finally {
 			bis.close();
-			fos.close();
+			fos.close();			
 		}
 		System.out.println("끝");
 		
-		
-		
 	}
+
 }

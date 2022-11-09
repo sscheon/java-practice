@@ -6,7 +6,7 @@ public class Ex01 {
 		// 배열은 여러 값을 구별하기 위해 index라고 하는 정수 값을 이용한다
 		// 배열의 각 멤버 요소는 단일 변수와 동일하다
 		
-		int[] arr = { 2, 7, 8, 4, 6 };
+		int[] arr = {2, 7, 8, 4, 6};
 		
 		// arr배열의 0번째 요소(변수)의 값은 2이다
 		// arr배열의 1번째 요소(변수)의 값은 7이다
@@ -25,7 +25,7 @@ public class Ex01 {
 		System.out.println("배열의 길이 : " + arr.length);
 		
 		// 배열의 요소를 반복문으로 출력해보기
-		for(int i = 0; i < arr.length; i++) {// 배열 및 리스트를 대상으로, 항상 0부터 크기까지
+		for (int i = 0; i < arr.length; i++) {	// 배열 및 리스트를 대상으로, 항상 0부터 크기까지 반복
 			System.out.println(arr[i]);
 		}
 		System.out.println();
@@ -34,20 +34,12 @@ public class Ex01 {
 		
 		// 대입
 		arr[0] = 3;
-		
 		// 연산
-		arr[1] += 1;
-		
+		arr[1] = +1;
 		// 출력
 		System.out.println(arr[2]);
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		// RAID = Redundant Array Independent Disks
 	}
+
 }

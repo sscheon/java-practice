@@ -8,13 +8,12 @@ public class Ex04 {
 		System.out.println(s1.contains("abc"));
 		System.out.println(s1.contains(".."));
 		
-		if(s1.contains("hjk")) {
+		if (s1.contains("hjk")) {
 			s1 = s1.replace("hjk", "xyz");
 		}
-		if(s1.contains(".")) {
+		if (s1.contains(".")) {
 			s1 = s1.replace(".", "*");
 		}
-		
 		System.out.println(s1);
 		
 		
@@ -25,28 +24,26 @@ public class Ex04 {
 		String s4 = s2.trim();
 		System.out.println(s4);
 		
-		String s5 = "    <div>\n        Hello\n    </div>    ";
+		String s5 = "	<div>\n    Hello\n    </div>    ";
 		System.out.println(s5);
 		String s6 = s5.trim();	// 시작과 끝의 공백을 제거해준다
 		System.out.println(s6);
 		
-		// .은 연속으로 2개 이상 배치될 수 없다
-		String s7 = "1......2";
-//		if(s7.contains("..")) {
-		while(s7.contains("..")) {
+		// .은 연속으로 2개이상 배치될 수 없다라는 가정
+		String s7 = "1....................................2";
+		while (s7.contains("..")) {
 			s7 = s7.replace("..", ".");
 		}
 		System.out.println(s7);
 		
-		
 		String s8 = "abcABC123!@#...xyz";
-		// 위 문자열에서 영문자를 제외한 나머지는 모두 제거하기
-		String s9 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		// 위 문자열에서 영문자을 제외한 나머지는 모두 제거하기
+		String s9 = "abcdefghijklnmopqrstuvwxyzABCDEFGHIJKLNMOPQRSTUVWXYZ";
 		String s10 = "";
 		
-		for(int i = 0; i < s8.length(); i++) {
+		for (int i = 0; i < s8.length(); i++) {
 			char ch = s8.charAt(i);
-			if(s9.contains(ch + "")) {
+			if (s9.contains(ch + "")) {
 //				s10 += ch;
 				s10 = s10.concat(ch + "");
 			}
@@ -56,12 +53,6 @@ public class Ex04 {
 		int num = Integer.parseInt("1234");
 		System.out.println(num + 1);
 		
-		
-		
-		
-		
 	}
+
 }
-
-
-

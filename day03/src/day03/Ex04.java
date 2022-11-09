@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ex04 {
 	public static void main(String[] args) throws Exception {
-		// 아래 코드의 실행을 확인하고, 코드의 흐름을 분석해보세요
+		// 아래 코드의 실행을 확인하고, 코드 흐름을 분석해보세요
 		
 		Scanner sc = new Scanner(System.in);
 		int size = 100;
@@ -23,11 +23,13 @@ public class Ex04 {
 				System.out.print("#");
 			}
 			else {
-				System.out.print("_");
+				System.out.print(" ");
 			}
-			Thread.sleep(500); 	// CPU에게 0.5초만큼 기다리게 한다
+			Thread.sleep(100); // CPU에게 0.1초만큼 기다리게 한다
 		}
 		System.out.println("]");
+		
 		sc.close();
 	}
+
 }

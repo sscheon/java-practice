@@ -6,7 +6,7 @@ public class Ex02 {
 		
 		double pi = 3.14;
 		int num = (int)pi;
-		// Type mismatch: cannot convert from double to int
+		// Type mismatch : cannot convert from double to int
 		// 대입 연산 시, 좌변과 우변의 자료형은 같아야 한다
 		// 일시적으로 우변의 값을 원하는 자료형으로 변환한 이후 대입한다 (casting)
 		
@@ -20,7 +20,5 @@ public class Ex02 {
 		
 		System.out.println("num2 : " + num2);
 		System.out.println("db : " + db);
-		
-		
 	}
 }

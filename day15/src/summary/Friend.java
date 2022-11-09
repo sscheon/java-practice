@@ -1,13 +1,13 @@
 package summary;
 
 public class Friend extends Human implements Companion {
-
-	Friend(String name) {
+	
+	Friend(String name){
 		super(name);
 	}
-
+	
 	@Override
 	public String getFeed() {
-		return "주먹밥을";
+		return "주먹밥";
 	}
 }

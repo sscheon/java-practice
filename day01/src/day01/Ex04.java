@@ -8,10 +8,11 @@ public class Ex04 {
 		System.out.printf("%d, %d, %d, %d\n", n1, n2, n3, n4);
 		
 		boolean flag1 = n1++ + ++n2 < 0 && n3-- * ++n4 == 0;
+		// &&연산 - 첫번째 연산이 false가 나왔기 때문에 두번째 연산은 계산하지 않았음
 		System.out.println(flag1);
 		System.out.printf("%d, %d, %d, %d\n", n1, n2, n3, n4);
 		
-		// 두 조건중 첫번째 조건만으로 전체결과가 확정된다면
+		// 두 조건 중 첫번째 조건만으로 전체결과가 확정된다면
 		// 두번째 조건은 연산을 수행하지 않는다
 	}
 }
