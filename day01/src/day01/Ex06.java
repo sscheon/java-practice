@@ -3,7 +3,7 @@ package day01;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EX06 {
+public class Ex06 {
 	public static void main(String[] args) {
 		// updown 게임 만들기
 		
