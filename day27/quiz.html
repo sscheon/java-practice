@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul, ol {
+            list-style: none;
+            padding-left: 0px;
+        }
+        ul {
+            display: flex;
+            width: 900px;
+            height: 42px;
+        }
+        ul > li {
+            width: 900px;
+            height: 40px;
+            line-height: normal;
+            text-align: center;
+            background-color: #061c25;
+            color: #fff;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+        ul > li > a {
+            display: flex;
+            height: 34px;
+            line-height: normal;
+            text-decoration: none;            
+            justify-content: center; 
+            align-items: center; 
+            font-size: 13px;          
+            color: #fff;                                  
+            border-top: 3px solid #00b2cf; 
+            border-bottom: 3px solid #061c25;           
+        }
+        ol {
+            display: none;
+            position: absolute;                 
+            border: 1px solid #2b9cb9;
+            background-color: #123643;
+            padding: 5px;
+        }
+        ul > li > a:hover {                       
+            color: #2b9cb9;        
+            border-bottom: 3px solid #00b2cf;
+        }
+        ul > li:hover > ol {
+            display: block;
+            width: 180px;
+        }
+        ol > li {
+            text-align: left;
+            font-size: 13px;
+            font-weight: normal;
+        }
+        ol > li:hover {
+            cursor: pointer;
+            color: #fff;
+            text-decoration: underline;
+        }
+        ul > li > ol > li {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="color">
+
+    <h1>lol.inven.co.kr 드랍다운 메뉴 따라하기</h1>
+    <hr>
+
+    <nav>
+        <ul>
+            <li><a href="">홈</a></li>
+
+            <li><a href="">기록실</a>
+                <ol>
+                    <li>LoL기록실-경기기록</li>
+                    <li>LoL기록실-선수기록</li>
+                    <li>LoL기록실-팀 통산</li>
+                    <li>LoL기록실-선수 통산</li>
+                    <li>LoL기록실-챔피언 픽/밴</li>
+                    <li>LoL기록실-래더 랭킹</li>
+                    <li>LoL프로팀 정보</li>
+                </ol>
+            </li>
+
+            <li><a href="">LCK 인벤</a></li>
+
+            <li><a href="">챔피언</a>
+                <ol>
+                    <li>LoL 챔피언 정보</li>
+                    <li>챔피언 능력치 랭킹</li>
+                    <li>실시간 챔피언 평가</li>
+                </ol>
+            </li>
+
+            <li><a href="">카운터픽</a></li>
+
+            <li><a href="">공략</a></li>
+
+            <li><a href="">스킨갤러리</a></li>
+
+            <li><a href="">방송/영상</a></li>
+
+            <li><a href="">LoL DB</a>
+                <ol>
+                    <li>프리시즌 룬 시뮬</li>
+                    <li>프리시즌 아이템 DB</li>
+                    <li>소환사 주문 DB</li>
+                </ol>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    
+</body>
+</html>

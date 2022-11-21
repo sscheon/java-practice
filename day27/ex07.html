@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #root {            
+            width: 900px;
+            margin: auto;
+            border: 1px solid black;            
+        }
+        main, header, aside, footer {
+            margin: 10px;
+            padding: 5px;
+        }
+        main {
+            display: flex;
+            margin: 0;
+            padding: 0;           
+        }        
+        section {
+            margin: 10px;
+        }
+        header {            
+            border: 3px solid red;            
+        }
+        aside.left {                        
+            border: 3px solid orange;  
+            width: 20%;                               
+        }
+        aside.right {            
+            border: 3px solid lightgreen; 
+            width: 20%;
+            height: 250px;                     
+        }        
+        section {            
+            border: 3px solid hotpink;
+            width: 60%;            
+        }
+        footer {
+            border: 3px solid blue;  
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root">
+        <header>
+            <h1>사이트 제목</h1>
+        </header>
+
+        <main>
+            <aside class="left">
+                <h2>사이드바</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JAVAscript</li>
+                </ul>
+            </aside>
+    
+            <section>
+                <h2>본문</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                     Molestiae expedita quod ducimus, saepe minima quo eum? Quod ratione, autem iste eveniet laborum fugit alias deserunt laboriosam ullam aliquid excepturi? Architecto.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Dolorem quod id consequuntur excepturi inventore rem asperiores, quo neque nesciunt. Officiis veniam optio est quos repudiandae voluptas fuga. Maxime, consectetur a.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Sunt facilis eos nihil libero. Doloremque repudiandae iusto voluptates cum, minus possimus rerum porro enim cumque vero ratione explicabo laudantium! Explicabo, perferendis!</p>                
+            </section>
+    
+            <aside class="right">
+                <h2>사이드바</h2>
+                <ul>
+                    <li>항목 1</li>
+                    <li>항목 2</li>
+                    <li>항목 3</li>
+                    <li>항목 4</li>
+                </ul>
+            </aside>
+        </main>
+
+        <footer>
+            <h2>푸터</h2>
+            <p>저작권 정보</p>
+            <p>연락처 등</p>            
+        </footer>
+
+    </div>
+
+    
+</body>
+</html>

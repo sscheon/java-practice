@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #root {
+            /* border: 1px solid gray; */
+            margin: auto;
+            width: 900px;
+        }
+        header, nav, main, footer, aside, section, article {
+            border: 1px solid gray;
+            margin: 10px;
+            padding: 5px;            
+        }
+        header {
+            padding: 0;
+        }
+        nav.select {
+            display: flex;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        nav.select > nav {
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            display: flex;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+        aside.goods {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            width: 20%;
+        }
+        section {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            width: 80%;
+            
+        }
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header>
+            <h1>Title</h1>
+            <h2>SubTitle</h2>
+            <nav class="select">
+                <nav>Nav1</nav>
+                <nav>Nav2</nav>
+                <nav>Nav3</nav>
+                <nav>Nav4</nav>
+                <nav>Nav5</nav>
+            </nav>
+        </header>
+
+        <main>
+            <aside class="goods">
+                <aside>
+                    goods1
+                    description
+                </aside>
+                <aside>
+                    goods2
+                    description
+                </aside>
+                <aside>
+                    goods3
+                    description
+                </aside>
+                <aside>
+                    goods4
+                    description
+                </aside>
+            </aside>
+
+            <section>
+                <article>
+                    <h3>Main Article1</h3>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum minus quidem doloremque architecto eligendi totam? Quo ipsum repudiandae vel eos aut voluptas exercitationem, quos, laboriosam similique eaque quasi, velit eius.
+                </article>
+                <article>
+                    <h3>Main Article2</h3>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum natus deserunt qui minus odio est nostrum dolores repellat dignissimos debitis ratione earum, unde minima, obcaecati eum, quo necessitatibus rem praesentium?
+                </article>
+                <article>
+                    <h3>Main Article3</h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facilis cum! Ullam omnis rerum delectus assumenda velit fuga, saepe id dolor minus repellat corporis doloribus, itaque sed laboriosam iusto cumque!
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <h3>Corperation Name</h3>
+            Busan, Korea
+        </footer>
+
+    </div>
+    
+</body>
+</html>
