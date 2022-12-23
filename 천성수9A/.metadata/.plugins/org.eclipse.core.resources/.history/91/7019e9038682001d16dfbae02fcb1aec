@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="천성수9A.*"%>
+<%@ include file="header.jsp" %>
+
+
+<c:set var="dto" value="${dao.modify(param.idx) }" />
+
+<br>
+<h2>메뉴 수정</h2>
+<form action="modify-action.jsp" method="POST">
+	<p><input type="hidden" name="idx" value="${dto.idx }"></p>
+	<p>메뉴이름 : <input type="text" name="name" placeholder="메뉴이름" value="${dto.name }" required autofocus></p>
+	<p>가격 : <input type="text" name="price" placeholder="가격" value="${dto.price }" required></p>
+	<p>분류 : 
+		<select name="category" required>
+			<option value="">==분류선택==</option>
+			<option>추천메뉴</option>
+			<option>치킨세트</option>
+			<option>버거세트</option>
+			<option>스낵사이드</option>
+			<option>음료</option>
+		</select>
+	</p>
+	<p>메모 : <input type="text" name="memo" placeholder="메모" required></p>
+	<p>이미지 : <input type="file" name="imgPath" placeholder="이미지" required></p>
+	<p>삭제 여부 : 
+		<select name="deleteck" required>
+			<option value="">==선택==</option>
+			<option>yes</option>
+			<option>no</option>
+		</select>
+	</p>
+	<p><input type="submit" value="추가"></p>
+</form>
+
+</body>
+</html>

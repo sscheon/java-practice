@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="천성수9A.*"%>
+<%@ include file="header.jsp" %>
+
+<c:set var="dto" value="${dao.selectOne(param.idx) }" />
+
+<br>
+<h2>메뉴 수정</h2>
+<form action="modify-action.jsp" method="POST">
+	<p><input type="hidden" name="idx" value="${dto.idx }"></p>
+	<p>메뉴이름 : <input type="text" name="name" placeholder="메뉴이름" value="${dto.name }" readonly></p>
+	<p>가격 : <input type="text" name="price" placeholder="가격" value="${dto.price }" required></p>
+	<p>분류 : 
+		<select name="category" required>
+			<option value="">==분류선택==</option>
+			<option ${dto.category == '추천메뉴' ? 'selected' : '' }>추천메뉴</option>
+			<option ${dto.category == '치킨세트' ? 'selected' : '' }>치킨세트</option>
+			<option ${dto.category == '버거세트' ? 'selected' : '' }>버거세트</option>
+			<option ${dto.category == '스낵사이드' ? 'selected' : '' }>스낵사이드</option>
+			<option ${dto.category == '음료' ? 'selected' : '' }>음료</option>
+		</select>
+	</p>
+	<p>메모 : <input type="text" name="memo" placeholder="메모" value="${dto.memo }" required></p>
+	<p>이미지 : <img src="${cpath }img/${dto.imgPath }"></p>
+	<p>삭제 여부 : 
+		<select name="deleteck" required>
+			<option value="">==선택==</option>
+			<option ${dto.deleteck == 'yes' ? 'selected' : '' }>yes</option>
+			<option ${dto.deleteck == 'no' ? 'selected' : '' }>no</option>
+		</select>
+	</p>
+	<p><input type="submit" value="수정"></p>
+</form>
+
+</body>
+</html>

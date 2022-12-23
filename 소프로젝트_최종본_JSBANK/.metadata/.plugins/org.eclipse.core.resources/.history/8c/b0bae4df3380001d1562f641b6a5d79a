@@ -1,0 +1,211 @@
+package jsbank;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class SaleDAO {
+
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+
+	private DataSource ds;
+	private Context init;
+
+	private static SaleDAO instance = new SaleDAO();
+
+	public static SaleDAO getInstance() {
+		return instance;
+	}
+	
+	public SaleDAO() {
+
+		try {
+			init = new InitialContext();
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/oracle");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+	}
+	
+	private void close() {
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (Exception e) {}
+	}
+
+	public List<SaleDTO> selectAllList() {
+		ArrayList<SaleDTO> list = new ArrayList<SaleDTO>();
+		String sql = "select C.CLINO,"
+				+ " C.CNAME, C.GRADE,"
+				+ " C.BPDATE, B.BPNO,"
+				+ " B.BPNAME, B.REGCON,"
+				+ " B.PERIOD, B.TAXRATE,"
+				+ " B.MAXRATE,"
+				+ " CASE WHEN (GRADE='1등급(VIP)' OR GRADE='2등급') THEN MAXRATE ELSE TAXRATE END as rate,"
+				+ " B.NOTE,"
+				+ " E.EMPNO,"
+				+ " E.ENAME from client C, employee E, bankproduct B where C.bpno = B.bpno and   C.empno = E.empno";
+				
+
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery(sql);
+
+			while (rs.next()) {
+				SaleDTO ob = new SaleDTO();				
+				ob.setClino(rs.getInt("clino"));
+				ob.setCname(rs.getString("cname"));
+				ob.setGrade(rs.getString("grade"));
+				ob.setBpdate(rs.getString("bpdate"));
+				ob.setBpno(rs.getInt("bpno"));
+				ob.setBpname(rs.getString("bpname"));
+				ob.setRegcon(rs.getString("regcon"));
+				ob.setPeriod(rs.getString("period"));
+				ob.setTaxrate(rs.getDouble("taxrate"));
+				ob.setMaxrate(rs.getDouble("maxrate"));
+				ob.setRate(rs.getDouble("rate"));
+				ob.setNote(rs.getString("note"));
+				ob.setEmpno(rs.getInt("empno"));
+				ob.setEname(rs.getString("ename"));
+				list.add(ob);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
+	public List<SaleDTO> selectMonthList() {
+	      ArrayList<SaleDTO> list = new ArrayList<SaleDTO>();
+	      String sql = "select" + 
+	      		"C.BPDATE," + 
+	      		"C.CLINO," + 
+	      		"C.CNAME," + 
+	      		"C.GRADE," + 
+	      		"B.BPNO," + 
+	      		"B.BPNAME," + 
+	      		"B.REGCON," + 
+	      		"B.PERIOD," + 
+	      		"B.TAXRATE," + 
+	      		"B.MAXRATE," + 
+	      		"CASE" + 
+	      		"    WHEN (GRADE='1등급(VIP)' OR GRADE='2등급')" + 
+	      		"    THEN MAXRATE ELSE TAXRATE" + 
+	      		"    END as rate," + 
+	      		"B.NOTE," + 
+	      		"E.EMPNO," + 
+	      		"E.ENAME" + 
+	      		"from client C, employee E, bankproduct B" + 
+	      		"where C.bpno = B.bpno and C.empno = E.empno AND EXTRACT(YEAR FROM BPDATE) = 2022 AND EXTRACT(MONTH FROM BPDATE) = " + 
+	      		"ORDER BY BPDATE";
+	
+	      try {
+	         conn = ds.getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         rs = pstmt.executeQuery(sql);
+	
+	         while (rs.next()) {
+	            SaleDTO ob = new SaleDTO();
+	            ob.setBpdate(rs.getString("bpdate"));
+	            ob.setEmpno(rs.getInt("empno"));
+	            ob.setEname(rs.getString("ename"));
+	            ob.setClino(rs.getInt("clino"));
+	            ob.setCname(rs.getString("cname"));
+	            ob.setGrade(rs.getString("grade"));
+	            ob.setBpno(rs.getInt("bpno"));
+	            ob.setBpname(rs.getString("bpname"));
+	            ob.setRegcon(rs.getString("regcon"));
+	            ob.setPeriod(rs.getString("period"));
+	            ob.setRate(rs.getDouble("rate"));
+	            ob.setTaxrate(rs.getDouble("taxrate"));
+	            ob.setMaxrate(rs.getDouble("maxrate"));
+	            ob.setNote(rs.getString("note"));
+	            list.add(ob);
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return list;
+	}
+	
+	public List<SaleDTO> selectBpList() {
+	      ArrayList<SaleDTO> list = new ArrayList<SaleDTO>();
+	      String sql = "select" + 
+	      		"B.BPNO," + 
+	      		"B.BPNAME," + 
+	      		"C.CLINO," + 
+	      		"C.CNAME," + 
+	      		"C.BPDATE," + 
+	      		"C.GRADE," + 
+	      		"B.REGCON," + 
+	      		"B.PERIOD," + 
+	      		"B.TAXRATE, " + 
+	      		"B.MAXRATE," + 
+	      		"CASE " + 
+	      		"    WHEN (GRADE='1등급(VIP)' OR GRADE='2등급') " + 
+	      		"    THEN MAXRATE ELSE TAXRATE " + 
+	      		"    END as rate, " + 
+	      		"B.NOTE,  " + 
+	      		"E.EMPNO, " + 
+	      		"E.ENAME " + 
+	      		"from client C, employee E, bankproduct B " + 
+	      		"where C.bpno = B.bpno and C.empno = E.empno " + 
+	      		"ORDER BY BPNO";
+	
+	      try {
+	         conn = ds.getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         rs = pstmt.executeQuery(sql);
+	
+	         while (rs.next()) {
+	            SaleDTO ob = new SaleDTO();
+	            ob.setBpdate(rs.getString("bpdate"));
+	            ob.setEmpno(rs.getInt("empno"));
+	            ob.setEname(rs.getString("ename"));
+	            ob.setClino(rs.getInt("clino"));
+	            ob.setCname(rs.getString("cname"));
+	            ob.setGrade(rs.getString("grade"));
+	            ob.setBpno(rs.getInt("bpno"));
+	            ob.setBpname(rs.getString("bpname"));
+	            ob.setRegcon(rs.getString("regcon"));
+	            ob.setPeriod(rs.getString("period"));
+	            ob.setRate(rs.getDouble("rate"));
+	            ob.setTaxrate(rs.getDouble("taxrate"));
+	            ob.setMaxrate(rs.getDouble("maxrate"));
+	            ob.setNote(rs.getString("note"));
+	            list.add(ob);
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return list;
+	   }	   
+	  
+}

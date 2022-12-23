@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
+
+<br>
+<h2>메뉴 추가</h2>
+<form action="add-action.jsp" method="POST">
+	<p><input type="text" name="name" placeholder="메뉴명" required autofocus></p>
+	<p><input type="text" name="price" placeholder="가격" required></p>
+	<p><input type="text" name="name" placeholder="메뉴명" required></p>
+	<p><input type="text" name="memo" placeholder="메모" required></p>
+	<p><input type="file" name="imgPath" placeholder="사진" required></p>
+	<p><input type="radio" name="deleteck" required></p>
+	<p><input type="submit" value="추가"></p>
+</form>
+
+</body>
+</html>

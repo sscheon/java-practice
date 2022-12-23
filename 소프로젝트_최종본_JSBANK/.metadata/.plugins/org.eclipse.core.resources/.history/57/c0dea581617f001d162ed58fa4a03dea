@@ -1,0 +1,25 @@
+package jsbank;
+
+public class CliDTO {
+//	CLINO     NOT NULL NUMBER        
+//	CNAME     NOT NULL VARCHAR2(100) 
+//	REGNUM    NOT NULL VARCHAR2(100) 
+//	CPHONENUM NOT NULL VARCHAR2(100) 
+//	ACNTNUM   NOT NULL VARCHAR2(100) 
+//	ADDRESS   NOT NULL VARCHAR2(200) 
+//	CLIEMAIL  NOT NULL VARCHAR2(100) 
+//	BPNO      NOT NULL NUMBER        
+//	GRADE     NOT NULL VARCHAR2(100) 
+//	BPDATE             DATE          
+//	EMPNO     NOT NULL NUMBER    
+	private int clino;
+	private String cname;
+	private String regnum;
+	private String cphonenum;
+	private String acntnum;
+	private String address;
+	private int bpno;
+	private String grade;
+	private int empno;
+	
+}

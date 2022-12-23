@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="jsbank.*"%>
+<%@ include file="header.jsp" %>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>사원번호</th>
+			<th>이름</th>
+			<th>부서</th>
+			<th>직급</th>
+			<th>전화번호</th>
+			<th>이메일</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="dto" items="${dao.selectList() }">
+		<tr>
+			<td>${dto.empno }</td>
+			<td>${dto.ename }</td>
+			<td>${dto.dept }</td>
+			<td>${dto.rank }</td>
+			<td>${dto.ephonenum }</td>
+			<td>${dto.empemail }</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+
+
+</body>
+</html>

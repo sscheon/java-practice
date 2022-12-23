@@ -1,0 +1,8 @@
+package jsbank;
+
+public class LoginDAO {
+	
+	private String id;
+	private int pw;
+
+}

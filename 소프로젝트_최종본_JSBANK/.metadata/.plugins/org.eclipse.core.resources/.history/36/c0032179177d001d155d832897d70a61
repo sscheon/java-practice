@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<jsp:useBean id="user" class="jsbank.LoginDTO"/>
+<jsp:setProperty property="*" name="user"/>
+<jsp:useBean id="dao" class="jsbank.LoginDAO"/>
+
+<h3>${LoginDAO.login(user) != 1 ? '로그인 성공' : '로그인 실패' }</h3>
+<a href="${cpath }/index.jsp"><button>목록으로</button></a>
+
+<c:choose>
+	<c:when test="${ }"
+</c:choose>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ include file="header.jsp" %>
+
+<div id="wrap">		
+	<c:forEach var="dto" items="${dao.selectAllList() }">
+		<div class="item">
+			<div class="img"><img width="200px;" src="image/${dto.imgPath }"></div>
+			<div>${dto.idx }</div>
+			<div>${dto.name }</div>
+			<div>${dto.price }</div>
+			<div>${dto.category }</div>
+			<div>${dto.memo }</div>
+			<div>${dto.deleteck }</div>
+		</div>
+	</c:forEach>
+</div>
+
+
+</body>
+</html>

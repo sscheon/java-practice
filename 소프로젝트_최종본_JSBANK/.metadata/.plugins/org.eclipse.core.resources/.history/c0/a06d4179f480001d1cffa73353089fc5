@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="jsbank.SaleDAO"%>
+<%@ include file="header.jsp" %>
+
+
+<form action="saleMonthList-action.jsp" method="POST">
+	<select name="year" required>
+		<option value="">년도선택</option>
+		<option value="2022">2022</option>
+		<option value="2021">2021</option>
+	</select>
+	<select name="month" required>
+		<option value="">월 선택</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+	</select>
+	<input type="submit" value="검색">
+</form>
+
+</body>
+</html>

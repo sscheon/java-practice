@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="jsbank.EmpDAO"%>
+<%@ include file="header.jsp" %>
+
+
+<table class="scrolltable">
+	<thead>
+		<tr>
+			<th style="width:10%">사원번호</th>
+			<th style="width:10%">이름</th>
+			<th style="width:10%">부서</th>
+			<th style="width:10%">직급</th>
+			<th style="width:20%">전화번호</th>
+			<th style="width:20%">이메일</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="dto" items="${dao.selectList() }">
+		<tr>
+			<td style="width:10%">${dto.empno }</td>
+			<td style="width:10%">${dto.ename }</td>
+			<td style="width:10%">${dto.dept }</td>
+			<td style="width:10%">${dto.rank }</td>
+			<td style="width:20%">${dto.ephonenum }</td>
+			<td>${dto.empemail }</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+
+</body>
+</html>

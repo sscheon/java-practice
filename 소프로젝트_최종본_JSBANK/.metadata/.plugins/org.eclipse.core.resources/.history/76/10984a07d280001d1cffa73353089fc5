@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="jsbank.CliDAO"%>
+<%@ include file="header.jsp" %>
+
+
+<table class="scrolltable">
+	<thead>
+		<tr>
+			<th style="width:80px">고객번호</th>
+			<th style="width:80px">고객이름</th>
+			<th style="width:10%">주민번호</th>
+			<th style="width:10%">전화번호</th>
+			<th style="width:10%">계좌번호</th>
+			<th style="width:18%">집주소</th>
+			<th style="width:13%">이메일</th>
+			<th style="width:6%">상품번호</th>
+			<th style="width:7%">신용등급</th>
+			<th style="width:7%">가입일</th>
+			<th style="width:7%">담당자</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="dto" items="${dao2.selectList() }">
+		<tr>
+			<td style="width:60px">${dto.clino }</td>
+			<td style="width:60px">${dto.cname }</td>
+			<td style="width:10%">${dto.regnum }</td>
+			<td style="width:10%">${dto.cphonenum }</td>
+			<td style="width:10%">${dto.acntnum }</td>
+			<td style="width:18%">${dto.address }</td>
+			<td style="width:13%">${dto.cliemail }</td>
+			<td style="width:6%">${dto.bpno }</td>
+			<td style="width:7%">${dto.grade }</td>
+			<td style="width:7%">${dto.bpdate }</td>
+			<td style="width:7%">${dto.empno }</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+
+
+</body>
+</html>

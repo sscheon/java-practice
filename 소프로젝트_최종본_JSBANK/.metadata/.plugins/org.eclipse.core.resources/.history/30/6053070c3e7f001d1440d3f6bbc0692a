@@ -1,0 +1,12 @@
+package jsbank;
+
+public class EmpDTO {
+	
+//	EMPNO     NOT NULL NUMBER        
+//	ENAME     NOT NULL VARCHAR2(100) 
+//	DEPT      NOT NULL VARCHAR2(100) 
+//	RANK      NOT NULL VARCHAR2(100) 
+//	EPHONENUM NOT NULL VARCHAR2(100) 
+//	EMPEMAIL  NOT NULL VARCHAR2(100)
+
+}

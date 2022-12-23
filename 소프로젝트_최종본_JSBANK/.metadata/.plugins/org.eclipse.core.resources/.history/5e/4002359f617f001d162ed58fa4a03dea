@@ -1,0 +1,42 @@
+package jsbank;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class CliDAO {
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+
+	private DataSource ds;
+	private Context init;
+
+	private static EmpDAO instance = new EmpDAO();
+
+	public static EmpDAO getInstance() {
+		return instance;
+	}
+
+	public CliDAO() {
+
+		try {
+			init = new InitialContext();
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/oracle");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+
+	}
+}

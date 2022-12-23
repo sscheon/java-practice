@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="천성수9A.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cpath" value="${pageContext.request.contextPath }"/>
+<c:set var="dao" value="${Kfc_menuDAO.getInstance() }"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KFC</title>
+<style>
+	#wrap {		
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		justify-content: center;		
+	}
+	.item {
+		width : 300px;
+		dispaly: flex;
+		flex-flow: column;
+		margin: 10px;
+		padding: 15px;
+		text-align: center;		
+	}
+	.name {
+		font-size: 17px;
+		font-weight: bold;
+	}
+	.price {
+		font-size: 17px;
+		color: red;
+		font-weight: bold;
+	}
+	div > ul {
+		margin: auto;
+	}
+	a.logo {
+		display: inline-block;
+	}
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		color: inherit;
+		width: 100%;
+		height: 100%
+	}
+	ul {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	li {
+		list-style: none;
+	}	
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="${cpath }/index.jsp"><img src="${cpath }/image/logo.PNG"></a>
+<div>
+	<ul>
+		<li><a href="${cpath }/allList.jsp">전체목록</a></li>
+		<li><a href="${cpath }/categoryList.jsp">분류별목록</a></li>
+		<li><a href="${cpath }/searchOne.jsp">단일조회</a></li>
+		<li><a href="${cpath }/modify.jsp">수정</a></li>
+		<li><a href="${cpath }/deletecheck.jsp">삭제여부</a></li>
+	</ul>
+</div>
+</header>

@@ -1,0 +1,52 @@
+package 천성수9A;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class Kfc_menuDAO {
+	
+	private static Kfc_menuDAO instance = new Kfc_menuDAO();
+	
+	public static Kfc_menuDAO getInstance() {
+		return instance;
+	}
+	
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private Context init;
+	private DataSource ds;
+	
+	public Kfc_menuDAO() {
+		
+		try {
+			init = new InitialContext();
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/oracle");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+	}
+	
+	private void close() {
+		try {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();					
+			} catch (Exception e) {}
+	}
+	
+	public 
+}

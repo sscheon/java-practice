@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ include file="header.jsp" %>
+
+<table>
+	<thead>
+		<tr>
+			<th>상품번호</th>
+			<th>상품명</th>
+			<th>상품가격</th>
+			<th>카테고리</th>
+			<th>메모</th>
+			<th>이미지</th>
+			<th>삭제여부</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="dto" items="${dao.selectAllList() }">
+		<tr>
+			<td>${dto.idx }</td>
+			<td>${dto.name }</td>
+			<td>${dto.price }</td>
+			<td>${dto.category }</td>
+			<td>${dto.memo }</td>
+			<td>${dto.imgPath }</td>
+			<td>${dto.deleteck }</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+
+
+</body>
+</html>

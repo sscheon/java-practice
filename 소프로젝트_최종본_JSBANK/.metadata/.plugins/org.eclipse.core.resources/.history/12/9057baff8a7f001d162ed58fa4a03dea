@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cpath" value="${pageContext.request.contextPath }" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login.jsp</title>
+<style>
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  width: 285px;
+  margin: -140px 0 0 -182px;
+  padding: 40px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  h2 {
+    margin: 0 0 20px;
+    line-height: 1;
+    color: #44c4e7;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  input {
+    outline: none;
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    color: #ccc;
+    font-family: "Roboto";
+    box-sizing: border-box;
+    font-size: 14px;
+    font-wieght: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: 0.2s linear;
+    &input:focus {
+      color: #333;
+      border: 1px solid #44c4e7;
+    }
+  }
+  button {
+    cursor: pointer;
+    background: #44c4e7;
+    width: 100%;
+    padding: 10px 15px;
+    border: 0;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    &:hover {
+      background: #369cb8;
+    }
+  }
+}
+
+body {
+	background-image: url("${cpath}/img/28018.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+</style>
+</head>
+<body>
+
+	<section class="form animated flipInX">
+  <h2>Login To Your Account</h2>
+  <form class="loginbox" autocomplete="off">
+    <input placeholder="Username" type="text" id="username"></input>
+    <input placeholder="Password" type="password" id="password"></input>
+<button id="submit">Login</button>
+</form>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="jsbank.CliDAO"%>
+<%@ include file="header.jsp" %>
+
+
+<table class="scrolltable">
+	<thead>
+		<tr>
+			<th>고객번호</th>
+			<th style="width:60px">고객이름</th>
+			<th>주민번호</th>
+			<th>전화번호</th>
+			<th>계좌번호</th>
+			<th>집주소</th>
+			<th>이메일</th>
+			<th>상품번호</th>
+			<th>신용등급</th>
+			<th>가입일</th>
+			<th style="width:50px">담당자</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="dto" items="${dao2.selectList() }">
+		<tr>
+			<td>${dto.clino }</td>
+			<td style="width:60px">${dto.cname }</td>
+			<td>${dto.regnum }</td>
+			<td>${dto.cphonenum }</td>
+			<td>${dto.acntnum }</td>
+			<td>${dto.address }</td>
+			<td>${dto.cliemail }</td>
+			<td>${dto.bpno }</td>
+			<td>${dto.grade }</td>
+			<td>${dto.bpdate }</td>
+			<td style="width:50px">${dto.empno }</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+select * from client;
+select * from bankproduct;
+select * from employee;
+
+
+--------------------------------------------------------------------------------
+
+
+drop table employee PURGE;
+drop sequence employee_seq;
+delete from employee; 
+
+create sequence employee_seq
+    start with 1000
+    maxvalue 999999999
+    increment by 1
+    nocache
+    nocycle;
+
+create table employee (
+empno number default employee_seq.nextval primary key,
+ename varchar2(100) not null,
+dept varchar2(100) not null,
+rank varchar2(100) not null,
+ephonenum varchar2(100) not null,
+empemail varchar2(100) not null
+); 
+
+--------------------------------------------------------------------------------
+
+drop table client PURGE;
+drop sequence client_seq;
+
+create sequence client_seq
+    start with 1
+    maxvalue 999999999
+    increment by 1
+    nocache
+    nocycle;
+
+create table client (
+clino number default client_seq.nextval primary key,
+cname varchar2(100) not null,
+regnum varchar2(100) not null,
+cphonenum varchar2(100) not null,
+acntnum varchar2(100) not null,
+address varchar2(200) not null,
+cliemail varchar2(100) not null,
+bpno number not null,
+grade varchar2(100) not null,
+bpdate date default sysdate,
+empno number not null
+);
+
+
+
+
+--------------------------------------------------------------------------------
+
+drop table bankproduct PURGE;
+drop sequence bankproduct_seq;
+
+create sequence bankproduct_seq
+    start with 1
+    maxvalue 999999999
+    increment by 1
+    nocache
+    nocycle;
+    
+create table bankproduct (
+bpno number default bankproduct_seq.nextval primary key,
+bpname varchar2(200) not null,
+regcon varchar2(100) not null,
+period varchar2(50) not null,
+taxrate number not null,
+maxrate number not null,
+wave number not null,
+note varchar2(200)
+);
+
+------------------------------- EMPLOYEE DB ------------------------------------
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('석진성', '임원진', '회장', '010-6439-2882', 'wlstjd@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('이순신', '임원진', '사장', '010-1111-1111', 'tnstls@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('김삿갓', '임원진', '부사장', '010-1112-1112', 'tktrkt@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('이대근', '임원진', '상무', '010-1113-1113', 'eorms@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('박이중', '임원진', '상무', '010-1111-1114', 'dlwnd@naver.com');
+INSERT INTO EMPLOYEE(ename, dept, rank, ephonenum, empemail)
+VALUES('박한이', '임원진', '이사', '010-1111-1115', 'gksdl@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('이하니', '임원진', '이사', '010-1111-1116', 'gksl@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('김이이', '인사', '부장', '010-1111-1117', 'dldl@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('이영애', '영업', '부장', '010-1111-1118', 'duddo@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('변기수', 'IT개발', '부장', '010-1111-1119', 'rltn@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('최영호', '자금운용', '부장', '010-1111-1120', 'dudgh@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('김태희', '자금운용', '과장', '010-1111-1121', 'xogml@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('윤미래', '자금운용', '대리', '010-1111-1122', 'alfo@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('장미희', '자금운용', '사원', '010-1111-1123', 'algml@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('김사랑', '투자상품', '부장', '010-1111-1124', 'tkfkd@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('박세리', '투자상품', '과장', '010-1111-1125', 'tpfml@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('구인회', '투자상품', '대리', '010-1111-1126', 'dlsghl@naver.com');
+INSERT INTO EMPLOYEE( ename, dept, rank, ephonenum, empemail)
+VALUES('오종택', '투자상품', '주임', '010-1111-1127', 'whdxor@naver.com');
+
+select * from employee;
+COMMIT;
+
+-------------------------------- CLIENT DB -------------------------------------
+
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('이영희', '861111-180001', '010-9999-9999', '111-111-11111','창원시 상남동', 'dudgml1@businessinsider.com', 1, '1등급(VIP)', '2022-12-21', 1000);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('석진성', '960110-1861212', '010-6439-2882', '1002-080-053760','서울시 강남구', 'ap9407@businessinsider.com', 5, '1등급(VIP)', '2022-12-21', 1000);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('고희훈', '860110-1861111', '010-9999-9998', '1111-111-11112','부산시 강서구', 'gmlgns23@businessinsider.com', 1, '5등급', '2022-12-09', 1012);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('신호진', '861111-170001', '010-9999-9997', '1111-111-11113','서울시 강북구', 'ghwnps@businessinsider.com', 3, '3등급', '2022-12-1', 1010);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('백윤지', '920320-1792214', '010-9999-2865', '545-0280-875554','강원도 동막리', 'dbswml@daum.net', 2, '2등급', '2022-11-10', 1005);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('황은빈', '450729-1745687', '010-6441-7865', '1085-979-1782110','서울시 강남구', 'dmsqls@naver.com', 2, '4등급', '2022-05-17', 1012);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('남상철', '580204-2794512', '010-0221-1014', '987-654-7964621','하남시 광암동', 'gkskarhkd@yahoo.co.kr', 4, '3등급', '2022-01-09', 1011);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('오승하', '770811-2715215', '010-2514-7459', '522-5822-1358545','경기도 상교리', 'sengplayer@daum.net', 2, '9등급', '2022-05-05', 1013);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('한은수', '001515-1789552', '011-8451-7841', '6544-452-757782','광주시 산이리', 'silverwater@gmail.net', 3, '6등급', '2022-08-11', 1017);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('배현옥', '320719-1846154', '010-1234-1771', '2146-233-262342','오산시 청학동', 'stringrock@naver.com', 2, '4등급', '2022-07-29', 1017);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('사공상원', '950217-2751532', '010-6545-5856', '982-845-265123','경기도 울지리', '사상공원@naver.com', 4, '3등급', '2022-02-17', 1005);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('탁용태', '210412-1862551', '010-5555-1122', '555-666-777777','서울시 영등포구', 'egg@naver.com', 3, '8등급', '2022-12-19', 1006);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('김지원', '950320-2794152', '010-9047-9726', '1002-113-945464','경상남도 김해시', 'wldyd8808@naver.com', 1, '10등급', '2022-03-20', 1000);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('백재석', '111111-1111122', '010-9999-9995', '999-999-9995412','경상남도 진주시', 'wotmr@naver.com', 3, '8등급', '2022-07-12', 1013);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('복경숙', '111111-1111132', '010-9999-9994', '999-999-9994412','경상남도 통영시', 'qhrruddl@naver.com', 1, '5등급', '2022-11-11', 1012);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('허연숙', '111111-1111141', '010-9999-9993', '999-999-9991121','경상남도 사천시', 'gjdjsrkemr@daum.net', 2, '1등급(VIP)', '2022-04-08', 1011);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('신병우', '111111-1111152', '010-9999-9992', '9999-999-9994441','천안시 백석동', 'qodqoddn@naver.com', 4, '4등급', '2022-05-22', 1007);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('황보준민', '111111-1111155', '010-9999-9991', '9999-999-9911112','김해시 어방동', 'qhwnsals@naver.com', 2, '3등급', '2022-05-10', 1004);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('전명희', '111111-11111166', '010-1155-5455', '555-455-2988442','부산시 수영구', 'audwhite@naver.com', 1, '2등급', '2022-01-21', 1003);
+INSERT INTO client(cname, regnum, cphonenum, acntnum, address, cliemail, bpno, grade, bpdate, empno)
+VALUES('손힘찬', '945651-4484651', '010-5515-5454', '5156-151-9855551','부산시 해운대구', 'powerup@daum.net', 3, '5등급', '2022-03-26', 1002);
+
+
+
+select * from client;
+commit;
+
+------------------------------- BANKPRODUCT DB ---------------------------------
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('키워봐요 적금', '4등급이상', '3년', 2.0, 4.5, 0.3, '적금가입 시 설정되는 주 단위 자동이체 25회 달성');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('사이버우대매일부금', '7등급이상', '2년', 2.95, 3.5, 0.2, '탐나는 J 직장인통장 가입');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('반려행복적금', '3등급이상', '4년', 3.0, 4.5, 1.0, '반려동물 등록 시 우대 적용');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('법사랑플러스적금', '5등급이상', '5년이상', 3.9, 4.4, 0.1, 'NH채움카드 이용실적 월평균 10만원 이상 시 우대 적용');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('아름다운 용기 적금', '2등급이상', '2년', 3.1, 4.6, 0.5, '');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('2030부산월드엑스포적금', '8등급이상', '2년', 3.7, 5.6, 1.5, '엑스포 유치 응원 우대이율 적용');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('내맘적금', '9등급이상', '1년', 2.9, 3.4, 0.1, '은행 통장에서 계약기간의 1/2이상 월부금 자동이체실적 충족 시 우대');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('영플러스적금', '4등급이상', '3년', 3.6, 4.2, 0.2, '입학 및 졸업 축하금리 적용');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('MZ플랜적금', '6등급이상', '2년', 4.1, 6.0, 1.9, '매월 4회이상 지속적 납입시 우대적용');
+
+insert into bankproduct(bpname, regcon, period, taxrate, maxrate, wave, note)
+values('코드K 자유적금', '7등급이상', '4년', 4.4, 4.5, 0.1, '금리우대 코드를 입력하는 경우 우대금리 적용');
+
+select * from bankproduct;
+COMMIT;

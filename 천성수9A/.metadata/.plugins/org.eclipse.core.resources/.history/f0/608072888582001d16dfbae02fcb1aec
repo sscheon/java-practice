@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="천성수9A.*"%>
+<%@ include file="header.jsp" %>
+
+
+<c:set var="dto" value="${dao.modify(param.idx) }" />
+
+<form action="modify-action.jsp">
+	
+</form>
+
+</body>
+</html>

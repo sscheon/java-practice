@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ include file="header.jsp" %>
+
+<form action="categoryList.jsp">
+	<select>
+		<option value="">===분류선택===</option>
+		<option>추천메뉴</option>
+		<option>치킨세트</option>
+		<option>버거세트</option>
+		<option>스낵사이드</option>
+		<option>음료</option>
+	</select>
+</form>
+
+</body>
+</html>
