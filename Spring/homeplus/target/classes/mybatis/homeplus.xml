@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.repository.HomeplusDAO">
+	<select id="selectAllList" resultType="homeplus">
+		select idx, category, productName, price, score, thumbnail, registDate from homeplus order by price
+	</select>
+	
+	<insert id="insert" parameterType="homeplus">
+		insert into homeplus values(
+		homeplus_seq.nextval, 
+		#{category},
+		#{productName}, 
+		#{price}, 
+		#{score}, 
+		#{thumbnail}, 
+		#{reviewImage}, 
+		#{registDate}
+		)
+	</insert>
+	
+	<select id="selectOne" parameterType="hashMap" resultType="homeplus">
+		select * from homeplus 
+		where ${type} 
+		like ${keyword}
+	</select>
+</mapper>
