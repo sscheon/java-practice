@@ -10,9 +10,6 @@
 <meta charset="UTF-8">
 <title>Homeplus</title>
 <style>
-	.list {
-		display: flex;
-	}
 	.wrap {
 		display: flex;
 		flex-flow: wrap;
@@ -24,7 +21,7 @@
 <body>
 
 <header>
-	<h1><a href="${capth }/home">Homeplus</a></h1>	
+	<h1><a href="${cpath }/">Homeplus</a></h1>	
 </header>
 
 

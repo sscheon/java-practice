@@ -10,5 +10,7 @@ public interface HomeplusDAO {
 
 	int insert(HomeplusDTO dto);
 
-	List<HomeplusDTO> selectOne();	
+	List<HomeplusDTO> selectOne();
+
+	HomeplusDTO view(int idx);	
 }

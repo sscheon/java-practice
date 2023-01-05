@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,5 +43,13 @@ public class HomeplusController {
 	public String insert(HomeplusDTO dto) {
 		homeplusService.insert(dto);
 		return "redirect:/list";
-	}		
+	}
+	
+	@GetMapping("/view/{idx}")
+	public ModelAndView view(@PathVariable("idx") int idx) {
+		ModelAndView mav = new ModelAndView("view");
+		HomeplusDTO dto = homeplusService.get(idx);
+		mav.addObject("dto", dto);
+		return mav;
+	}
 }
