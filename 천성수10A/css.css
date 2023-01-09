@@ -1,0 +1,212 @@
+header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    display: flex;
+    margin: auto;        
+    border-bottom: 1px solid #dadada;
+    padding-top: 10px;
+                    
+}
+.header {
+    width: 1200px;
+    margin: auto;
+}
+.main {
+    width: 1200px;
+    margin: auto;
+}
+.nav {
+    margin: 0 20px;
+    display: flex;
+    width: 1200px;
+}
+.navall {
+    width: 80%;
+    border-left: 1px solid #dadada;
+    border-right: 1px solid #dadada;
+}
+.logo {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.logo > img {
+    padding-top: 20px;
+    width: 220px;
+    height: 60px;
+}
+li {
+    list-style: none;
+}
+.navtop {
+    display: flex;
+    justify-content: space-between;     
+}
+.login {
+    display: flex;
+}
+.navbottom > ul {
+    display: flex;
+    justify-content: space-between;
+}
+ol {
+    display: none;
+    position: absolute;
+}
+ul > li:hover > ol {
+    display: block;
+    background-color: #313131;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+aside {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 300px;        
+}
+.fixed {
+    position: fixed;
+    top: 0;
+    width: 80px;
+    border: 1px solid #dadada;
+    margin-left: 1220px;
+    margin-top: 150px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    height: auto;
+}
+.fixed > ul {
+    padding-left: 0;
+}
+.mainphoto > button {
+    width: 60px;
+    height: 60px;   
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: #008bce; 
+    border: none;    
+}
+button:hover {
+    cursor: pointer;
+}    
+.actionphoto {
+    width: 70%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #dadada;
+}
+.actionphoto > a { 
+    margin: auto;
+}
+.actionphoto > a > img{
+    width: 350px;
+    height: 200px;
+}
+section {
+    display: flex;
+    margin-top: 50px;
+}
+.sectionright {
+    width: 30%;
+    height: 200px;
+    font-size: 14px;
+    padding: 0;
+}
+.sectionright > ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.sectionright > ul > li {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    justify-content: center;
+}
+.sectionright > ul > li:nth-child(1) {
+    width: 50%;    
+    box-sizing: border-box;
+    background-color: #ffe400;
+}
+.sectionright > ul > li:nth-child(2) {
+    width: 50%;    
+    box-sizing: border-box;
+    background-color: #dadada;
+}
+.middleimg {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.middle2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.middle2 > .sectionright > ul > li {
+    width: 100%;
+}
+.middle3 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 120px;
+}
+.middle3 > .sectionright > ul > li {
+    width: 100%;
+}
+.review {        
+    margin-top: 30px;
+}
+.review > tbody > tr > td > a > img {        
+    width: 130px;
+    height: 90px;
+}
+.middle4 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 200px;
+}
+.middle4 > .sectionright > ul > li {
+    width: 100%;
+}
+.companylogos {
+    margin-top: 220px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+footer {
+    display: flex;       
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #313131;
+    color: white;
+    margin: 0;
+}
+footer > div {
+    margin: 20px;
+}
+.play {
+    font-size: 27px;
+    font-weight: bold;
+}
+.contant {
+    font-size: 20px;
+    font-weight: bold;
+}
+.mor { 
+    color: #7a7a7a;
+    font-size: 13px;
+}
