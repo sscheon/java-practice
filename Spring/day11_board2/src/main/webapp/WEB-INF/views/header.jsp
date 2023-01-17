@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>day10_board</title>
+<title>day11_board</title>
 <style>
 	.wrap {
 		width: 900px;
@@ -44,8 +44,6 @@
 	}
 	.bold {
 		font-weight: bold;
-		color: red;
-		background-color: yellow;
 	}
 	.pageNumber {
 		margin-top: 20px;
@@ -55,7 +53,7 @@
 </head>
 <body>
 
-<h1><a href="${cpath }/">day10 - board</a></h1>
+<h1><a href="${cpath }/">day11 - board</a></h1>
 <nav>
 	<ul>
 		<c:if test="${empty login }">
@@ -74,11 +72,6 @@
 		<h3><a href="${cpath }/member/mypage" title="마이페이지로 이동">${login.userid } (${login.username })</a></h3>
 	</c:if>
 </div>
-
-<ul>
-	<li><a href="${cpath }/ex01">ex01-version</a></li>
-	<li><a href="${cpath }/ex02">ex02-sysdate</a></li>
-</ul>
 
 
 

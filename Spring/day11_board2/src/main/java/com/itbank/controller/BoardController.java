@@ -1,5 +1,8 @@
 package com.itbank.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,23 +17,29 @@ import com.itbank.model.BoardDTO;
 import com.itbank.model.Paging;
 import com.itbank.service.BoardService;
 
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	
 	@Autowired private BoardService boardService;
 	
-	@GetMapping("/list")						// [http://localhost:8080/day10_board/board/list]
-	public ModelAndView list(@RequestParam(defaultValue = "1") Integer page) {		// viewName : /board/list
-		// @RequestParam(defaultValue = "") : 파리미터가 없으면, 기본값을 지정한다
+	@GetMapping("/list")						
+	public ModelAndView list(@RequestParam(defaultValue="1") Integer page) {	
+		// @RequestParam(defaultValue="") : 파라미터가 없다면, 기본값을 지정한다
 		
-		ModelAndView mav = new ModelAndView();	// forward : /WEB-INF/views/board/list.jsp
-		
+		ModelAndView mav = new ModelAndView();	
+
 		int boardCount = boardService.getBoardCount();
 		Paging paging = new Paging(page, boardCount);
 		System.out.println(paging);
 		
-		return mav;
+		List<BoardDTO> list = boardService.getListAll(paging);
+		
+		mav.addObject("list", list);
+		mav.addObject("paging", paging);
+		
+		return mav;	
 	}
 	
 	@GetMapping("/view/{idx}")
@@ -44,8 +53,9 @@ public class BoardController {
 	@GetMapping("/write")
 	public void write() {}
 	
-	@PostMapping("/write")
-	public String write(BoardDTO dto) {
+	@PostMapping("/write")				// 글작성 제출
+	public String write(BoardDTO dto, HttpServletRequest request) {
+		dto.setIpaddr(request.getRemoteAddr());
 		int row = boardService.write(dto);
 		System.out.println(row != 0 ? "작성 성공" : "작성 실패");
 		return "redirect:/board/list";
