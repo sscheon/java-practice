@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9_AJAX테스트.html</title>
+    <style>
+        #root {
+            border: 2px solid black;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .header {
+            font-size: 19px;
+            border: 1px solid gray;            
+            display: flex;
+        }
+        .header > div {
+            padding: 5px 10px;
+        }
+        .header > div:not(div.name) {
+            flex: 0.5;
+        }
+        .header > div.name {
+            flex: 2;
+        }
+        .person {
+            font-size: 19px;
+            border: 1px solid gray;
+            display: flex;
+        }
+        .person > div {
+            padding: 5px 10px;
+        }
+        .person > div:not(div.name) {
+            flex: 0.5;
+        }
+        .person > div.name {
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>9_AJAX테스트.html</h1>
+    <hr>
+
+    <div id="root">
+        <div class="header">
+            <div class="IDX">순번</div>
+            <div class="USERID">아이디</div>
+            <div class="USERPW">비밀번호</div>
+            <div class="USERNAME">이름</div>
+            <div class="GENDER">성별</div>
+            <div class="BIRTH">생일</div>
+        </div>
+    </div>
+    
+    <script>
+        const root = document.getElementById('root')
+        const url = 'http://192.168.112.7:8080/member5'
+
+        fetch(url)                  // 주소를 요청하면
+        .then(resp => resp.json())  // 응답을 받아서 json형태로 처리하여
+        .then(json => {             // json을 이용하여 코드를 진행하면 된다
+            const arr = json
+            console.log(arr)
+
+            arr.forEach(member => {
+                const person = document.createElement('div')
+                person.className = 'person'
+                const date = new Date(member.BIRTH)
+                const year = date.getFullYear()
+                const month = date.getMonth() + 1
+                const day = date.getDay()
+                const birth = year + '년' + month + '월' + day + '일'
+                
+                person.innerHTML += `<div class="IDX">${member.IDX}</div>`
+                person.innerHTML += `<div class="USERID">${member.USERID}</div>`
+                person.innerHTML += `<div class="USERPW">${member.USERPW}</div>`
+                person.innerHTML += `<div class="USERNAME">${member.USERNAME}</div>`
+                person.innerHTML += `<div class="GENDER">${member.GENDER}</div>`
+                person.innerHTML += `<div class="BIRTH">${birth}</div>`                
+
+                root.appendChild(person)
+            })
+        })
+    </script>
+</body>
+</html>

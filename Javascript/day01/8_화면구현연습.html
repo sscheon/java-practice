@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8_화면구현연습.html</title>
+    <style>
+        #root {
+            border: 2px solid black;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .student {
+            font-size: 19px;
+            border: 1px solid gray;
+            display: flex;
+        }
+        .student > div {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>8_화면구현연습.html</h1>
+    <hr>
+
+    <div id="root"></div>
+
+    <script>
+        // arr의 데이터를 7번 코드와 같은 방식으로 화면에 반영하세요
+        const arr = [
+            { name : '이지큼', kor : 100, eng : 90, mat : 95 },
+            { name : '콩진호', kor : 22, eng : 22, mat : 22 },
+            { name : '유재속', kor : 90, eng : 93, mat : 89 },
+            { name : '신동렵', kor : 85, eng : 87, mat : 90 },
+            { name : '강효덩', kor : 50, eng : 60, mat : 70 },
+        ]
+        console.log(arr)
+
+        arr.forEach(score => {
+            const student = document.createElement('div')
+
+            const name = '<div class="name">' + score.name + '</div>'
+            const kor = `<div class="kor">${score.kor}</div>`
+            const eng = `<div class="eng">${score.eng}</div>`
+            const mat = `<div class="mat">${score.mat}</div>`
+            const sum = '<div class="sum">' + (score.eng + score.kor + score.mat) + '</div>'
+            const avg = '<div class="avg">' + ((score.eng + score.kor + score.mat)/3).toFixed(1) + '</div>'
+            
+            student.className = 'student'
+            student.innerHTML += name
+            student.innerHTML += kor
+            student.innerHTML += eng
+            student.innerHTML += mat
+            student.innerHTML += sum
+            student.innerHTML += avg
+            
+            root.appendChild(student)
+        })
+    </script>
+    
+</body>
+</html>
