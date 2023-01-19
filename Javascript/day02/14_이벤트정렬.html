@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_이벤트정렬.html</title>
+</head>
+<body>
+
+    <h1>14_이벤트정렬.html</h1>
+    <hr>
+
+    <p>
+        <button id="asc">오름차순</button>
+        <button id="desc">내림차순</button>
+    </p>
+    <div id="root">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">19</div>
+        <div class="item">9</div>
+    </div>
+
+    <script>
+        const root = document.getElementById('root')
+        //root.innerHTML = ''   // 지정한 요소 내부의 모든 태그를 제거하기
+        // 1) item의 숫자만 가져와서 새로운 배열로 구성한다
+        // 2) 숫자 배열을 원하는 형태로 정렬한다
+        // 3) 정렬된 숫자들을 다시 <div class="item">에 넣는다
+        // 4) div들을 root에 appendChild()로 추가한다
+
+        const asc = document.getElementById('asc')
+        asc.onclick = function() {
+            const itemList = document.querySelectorAll('.item') // nodeList
+            const itemArray = Array.from(itemList)  // Array<div>
+            const numArray = itemArray.map(e => +e.innerText)   // Array<number>
+                
+            numArray.sort((a, b) => +a - +b)
+            console.log(numArray)
+            root.innerHTML = ''
+
+            numArray.forEach(num => {
+                const item = document.createElement('div')
+                item.classList.add('item')
+                item.innerText = num
+                root.appendChild(item)
+            })
+        }
+    </script>
+    
+</body>
+</html>
