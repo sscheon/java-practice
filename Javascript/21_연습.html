@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="19.js"></script>
+    <script>
+        const array = Array.from(dataList).filter((element, index) => index < 5)
+        console.log(array)
+
+        // 1) array의 각 요소에 대해, 이름을 반복하여 출력하세요 (forEach)
+        array.forEach(element => console.log(element.name))
+        console.log('============================================')
+
+        // 2) array의 각 요소에 대해, 이름과 가격만으로 구성된 새 배열을 만들어 출력하세요 (map)
+        // element의 구성이 바뀐다
+        const arr2 = array.map(element => {     // 기존 element를 받아서
+            const ob = {}                       // 새로운 객체 ob를 생성
+            ob.name = element.name              // 내가 원하는 요소만
+            ob.price = element.price            // 새로운 객체에 그대로 넣어준 다음
+            ob.salesPrice = element.price + 500 // 내가 원하는 요소를 추가할 수도 있다
+            return ob                           // 새로운 객체를 반환한다
+        })
+        console.log(arr2)
+        console.log('============================================')
+
+        // 3) array의 각 요소에 대해, 가격이 10000 이상인 요소만으로 구성된 새 배열을 출력하세요 (filter)
+        // element의 개수가 바뀐다 (구성은 동일하다)
+        const arr3 = array.filter(element => element.price >= 10000)
+        console.log(arr3)
+        console.log('============================================')
+
+        // 4) array의 각 요소에 대해, grade 기준 오름차순 정렬한 이후 array를 출력하세요
+        array.sort((elementA, elementB) => {
+            return elementA.grade > elementB.grade ? 1 : -1
+        })
+        console.log(array)
+
+        // {} 내부의 실행코드가 한 줄이기 때문에 {}와 return을 생략한 코드
+        array.sort((a, b) => a.grade > b.grade ? 1 : -1)
+    </script>
+    
+</body>
+</html>
