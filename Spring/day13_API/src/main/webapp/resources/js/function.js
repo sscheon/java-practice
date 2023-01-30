@@ -16,3 +16,15 @@ function getHTMLfromDTO(dto) {
 	tag += `</details>`
 	return tag
 }
+
+function getYY(date) {
+	const yyyy = date.getFullYear()
+	let mm = date.getMonth() + 1
+	let dd = date.getDate()
+	
+	mm = mm < 10 ? '0' + mm : mm
+	dd = dd < 10 ? '0' + dd : dd
+			
+	const ret = `${yyyy}-${mm}-${dd}`
+	return ret
+}
