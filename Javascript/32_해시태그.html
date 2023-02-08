@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>게시글 test 입니다 @test1 @test2 @test3 #본문!, #게시글 #test</p>
+    <div id="ret"></div>
+    <script>
+        const p = document.querySelector('p')
+        
+        // let result = ''
+        // for(let i = 0; i < p.innerText.length; i++) {
+        //     const ch = p.innerText[i]
+        //     if(myFilter.includes(ch) == false) {
+        //         result += p.innerText[i]
+        //     }
+        // }
+        // console.log(result)
+        
+        const hashTagArr = p.innerText.split(' ')
+            //.filter(t => t.startsWith('#') || t.startsWith('@'))
+            .map(e => {
+                const ob = {
+                    original: e,
+                    text: '',
+                    other: '',
+                    type: e[0] == '#' ? 'hash' : 'user'
+                }
+                const myFilter = '!$%^&*()-=+,'
+                for(let i = 0; i < e.length; i++) {
+                    if(myFilter.includes(e[i]) == false) {
+                        ob.text += e[i]
+                    }
+                    else {
+                        ob.other += e[i]
+                    }
+                }
+                ob.link = `<a href="https://search.naver.com/search.naver?query=${ob.text.substr(1)}">${ob.text}</a>`
+                ob.link += ob.other
+                return ob
+            })
+        console.log(hashTagArr)
+        
+        const ret = document.getElementById('ret')
+        hashTagArr.forEach(e => {
+            ret.innerHTML += e.link + '<br>'
+        })
+
+
+    </script>
+    
+</body>
+</html>
